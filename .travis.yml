@@ -2,11 +2,9 @@ language: php
 php:
 - 5.6
 - 7.0
-- hhvm
 before_script:
 - composer self-update
 - composer install --prefer-source --no-interaction --dev
-- phpenv config-add tests/config.ini
 script:
 - vendor/bin/phpunit
 - vendor/bin/coveralls

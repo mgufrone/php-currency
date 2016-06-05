@@ -58,10 +58,20 @@ $rates = $api->rates("USD", $date);
 include 'vendor/autoload.php';
 
 use Gufy\Currency\OpenExchange;
-$date = "2016-06-06";
 $api = new OpenExchange("your-app-id");
 $value = 10;
 $base = "USD";
 $target = "IDR";
 $rates = $api->convert($value, $base, $target);
+```
+
+### Get all available currencies
+```php
+<?php
+include 'vendor/autoload.php';
+
+use Gufy\Currency\OpenExchange;
+
+$api = new OpenExchange("your-app-id");
+$rates = $api->currencies();
 ```
