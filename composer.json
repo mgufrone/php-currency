@@ -1,5 +1,5 @@
 {
-    "name": "gufy/translate",
+    "name": "gufy/currency",
     "description": "Translate API Wrapper",
     "require": {
         "guzzlehttp/guzzle": "~6"
