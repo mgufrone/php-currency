@@ -545,6 +545,12 @@
         "ZMW": 10.027625,
         "ZWL": 322.322775
       }
+    },
+    {
+      "error": true,
+      "status": 403,
+      "message": "not_allowed",
+      "description": "Changing the API `base` currency is available for Developer, Enterprise and Unlimited plan clients. Please upgrade, or contact support@openexchangerates.org with any questions."
     }
   ]
 }

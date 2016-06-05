@@ -1,5 +1,6 @@
 <?php
 use Gufy\Currency\OpenExchange;
+use Gufy\Currency\Exception\ApiException;
 
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -54,5 +55,10 @@ class OpenExchangeTest extends \PHPUnit_Framework_TestCase{
     $this->assertEquals("USD", $response["base"]);
     $this->assertEquals(strtotime("2016-05-16 23:00:00"), $response["timestamp"]);
     $this->assertArrayHasKey("rates", $response);
+  }
+  public function testErrorException(){
+    $date = "2016-05-16";
+    $this->api->rates("IDR", $date);
+    $this->expectException(ApiException::class);
   }
 }
