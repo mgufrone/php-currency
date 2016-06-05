@@ -4,6 +4,7 @@ use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
+use Gufy\Currency\Exception\ApiException;
 use Closure;
 class OpenExchange{
   const API_URL = "https://openexchangerates.org/api/";
@@ -55,7 +56,7 @@ class OpenExchange{
     }
     catch(ClientException $e){
       $response = json_decode($e->getResponse()->getBody()->getContents(), true);
-      throw new \Exception($response["description"]);
+      throw new ApiException($response["description"]);
     }
   }
   public function setRequest(RequestInterface $request){

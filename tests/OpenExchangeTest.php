@@ -18,6 +18,8 @@ class OpenExchangeTest extends \PHPUnit_Framework_TestCase{
       new Response(200, ["Content-Type"=>"text/json"], json_encode($content[1])),
       new Response(200, ["Content-Type"=>"text/json"], json_encode($content[2])),
       new Response(200, ["Content-Type"=>"text/json"], json_encode($content[3])),
+      new Response(403, ["Content-Type"=>"text/json"], json_encode($content[4])),
+      new Response(400, ["Content-Type"=>"text/json"], json_encode($content[5])),
     ]);
     $handler = HandlerStack::create($mock);
     $this->api->client([
@@ -57,8 +59,12 @@ class OpenExchangeTest extends \PHPUnit_Framework_TestCase{
     $this->assertArrayHasKey("rates", $response);
   }
   public function testErrorException(){
+    $this->expectException(ApiException::class);
     $date = "2016-05-16";
     $this->api->rates("IDR", $date);
+  }
+  public function testErrorException2(){
     $this->expectException(ApiException::class);
+    $response = $this->api->convert($value = 10, $base = "EU", $target = "IDR");
   }
 }
