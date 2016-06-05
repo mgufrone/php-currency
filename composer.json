@@ -1,6 +1,6 @@
 {
     "name": "gufy/currency",
-    "description": "Translate API Wrapper",
+    "description": "Currency API (currently OpenExchangeRate) Wrapper for PHP",
     "require": {
         "guzzlehttp/guzzle": "~6"
     },
