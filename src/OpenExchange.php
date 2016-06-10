@@ -15,12 +15,7 @@ class OpenExchange{
     $this->appId = $appId;
   }
   public function rates($base = "USD", $date = null){
-    if ($date == null){
-      return $this->request("latest.json", ["base"=>$base]);
-    }
-    else{
-      return $this->request("historical/{$date}.json", ["base"=>$base]);
-    }
+      return $date == null ? $this->request("latest.json", ["base"=>$base]) : $this->request("historical/{$date}.json", ["base"=>$base]);
   }
   public function client($config = []){
     if(self::$CLIENT == null){
@@ -51,7 +46,6 @@ class OpenExchange{
     $data["app_id"] = $this->getAppId();
     try{
       $response = $client->request("GET", $url, ["query"=>$data, "handler"=>$tapHandler($clientHandler)]);
-      // $this->request = $response->getRequest();
       return json_decode($response->getBody()->getContents(), true);
     }
     catch(ClientException $e){

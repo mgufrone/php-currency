@@ -370,7 +370,7 @@
     {
       "disclaimer": "Exchange rates provided for informational purposes only and do not constitute financial advice of any kind. Although every attempt is made to ensure quality, no guarantees are made of accuracy, validity, availability, or fitness for any purpose. All usage subject to acceptance of Terms: https://openexchangerates.org/terms/",
       "license": "Data sourced from various providers; resale prohibited; no warranties given of any kind. All usage subject to License Agreement: https://openexchangerates.org/license/",
-      "timestamp": 1463439600,
+      "timestamp": 1463414400,
       "base": "USD",
       "rates": {
         "AED": 3.67322,
